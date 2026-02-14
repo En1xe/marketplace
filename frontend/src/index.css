@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+
+:root {
+    --color-grey-50: #EBEEF7;
+    --color-grey-50-hover: #caccd1;
+
+    --color-grey-500: #767E94;
+    --color-grey-hover: #515767;
+
+    --color-dark: #002233;
+
+    --color-dark-700: #464D61;
+
+    --color-dark-900: #191F33;
+
+    --color-dark-800: #2E3447;
+    --color-dark-800-hover: #3F4964;
+    
+    --color-accent: #00AAFF;
+    --color-accent-hover: #57C6FF;
+
+    --color-primary-50: #E8F7FF;
+
+    --color-green-500: #27C200;
+
+    --transition-duration: 0.2s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+svg * {
+    transition-duration: var(--transition-duration);
+}
+
+button {
+    cursor: pointer !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 100%;
+    padding-inline: 20px;
+}
+
+@media (width >= 1280px) {
+    .container {
+        padding-inline: 150px;
+    }
+}
+
+@media (width >= 1600px) {
+    .container {
+        padding-inline: 300px;
+    }
+}
+
+.ant-btn-icon {
+    display: flex !important;
+    align-items: center !important;
+}
+
+@keyframes side-menu-animation {
+    from {
+        transform: translateX(200px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes side-menu-left-animation {
+    from {
+        transform: translateX(-200px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.side-menu {
+    animation: side-menu-animation;
+    animation-duration: 0.2s;
+}
+
+.side-menu--left {
+    animation: side-menu-left-animation;
+    animation-duration: 0.2s;
+}
+
+@media (width <= 600px) {
+    .profile-tabs .ant-tabs-nav-list {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-grey-50-hover);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-grey-500);
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
