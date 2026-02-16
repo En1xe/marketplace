@@ -1,5 +1,11 @@
 FROM python:3.14-alpine
 
+RUN apk add --no-cache \
+    gcc \
+    musl-dev \
+    postgresql-dev \
+    python3-dev
+    
 RUN pip install uv
 
 WORKDIR /app/
