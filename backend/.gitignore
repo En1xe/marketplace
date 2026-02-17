@@ -13,5 +13,8 @@ wheels/
 
 uv.lock
 
-logs/
-src/core/security/security_keys/
+logs/*
+src/core/security/security_keys/*
+
+!logs/.gitkeep
+!src/core/security/security_keys/.gitkeep
