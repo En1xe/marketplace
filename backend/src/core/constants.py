@@ -17,7 +17,6 @@ AUTH_PUBLIC_KEY_PATH = SRC_DIR / 'core' / 'security' / 'security_keys' / 'public
 VERIFICATION_CODE_EXPIRE_MINUTES = 10
 
 GITHUB_TOKEN_URL = 'https://github.com/login/oauth/access_token'
-GITHUB_REDIRECT_URL = 'http://localhost:5173/oauth/github/complete'
 
 S3_CLIENT_ENDPOINT_URL = 'https://s3.ru-7.storage.selcloud.ru'
 S3_CLIENT_REGION = 'ru-7'

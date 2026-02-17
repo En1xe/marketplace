@@ -5,6 +5,8 @@ from .security.config import AuthSettings
 
 
 class Settings(BaseSettings):
+    HOST_NAME: str
+    
     DB_HOST: str
     DB_NAME: str
     DB_USER: str

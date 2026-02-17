@@ -1,11 +1,13 @@
 import BasicButton from '@comps/ui/Buttons/BasicButton/BasicButton'
 
+const HOST_NAME = import.meta.env.HOST_NAME
+
 
 export default function OAuthBox({action}) {
     const handleGithubButtonClick = async (e) => {
         e.preventDefault()
 
-        window.location.href = 'http://localhost:8000/oauth/github/url'
+        window.location.href = `http://${HOST_NAME}/oauth/github/url`
     }   
 
     return (

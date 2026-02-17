@@ -3,7 +3,7 @@ from httpx import AsyncClient
 from secrets import token_urlsafe
 
 from core.config import settings
-from core.constants import GITHUB_REDIRECT_URL, GITHUB_TOKEN_URL
+from core.constants import GITHUB_TOKEN_URL
 from .core import AbstractOAuthService
 from core.logging import get_logger
 
@@ -12,6 +12,8 @@ logger = get_logger(__name__)
 
 class GithubOAuthService(AbstractOAuthService):
     
+    redirect_uri = f'http://{settings.HOST_NAME}/oauth/github/complete'
+    
     def get_oauth_redirect_uri(self):
         logger.info("Generating redirect url for GitHub OAuth")
         random_state = token_urlsafe(16)
@@ -19,7 +21,7 @@ class GithubOAuthService(AbstractOAuthService):
         base_url = 'https://github.com/login/oauth/authorize'
         params = {
             'client_id': settings.GITHUB_OAUTH_CLIENT_ID,
-            'redirect_uri': GITHUB_REDIRECT_URL,
+            'redirect_uri': self.redirect_uri,
             'scope': ' '.join([ 
                 'user',
                 'repo'
@@ -47,7 +49,7 @@ class GithubOAuthService(AbstractOAuthService):
                     'client_id': settings.GITHUB_OAUTH_CLIENT_ID,
                     'client_secret': settings.GITHUB_OAUTH_CLIENT_SECRET,
                     'code': code,
-                    'redirect_uri': GITHUB_REDIRECT_URL,
+                    'redirect_uri': self.redirect_uri,
                 },
                 headers={"Accept": "application/json"}
             )
